@@ -1,0 +1,15 @@
+[Unit]
+Description=Startup Wasm Server
+Wants=udisks2.service
+After=udisks2.service
+
+[Service]
+WorkingDirectory=/home/pi/
+ExecStart=/home/pi/qt_project/server_sense_hat/server_sensor_hat
+Restart=always
+StandardInput=null
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

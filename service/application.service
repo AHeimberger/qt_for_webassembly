@@ -1,0 +1,15 @@
+[Unit]
+Description=Startup Wasm Application
+Wants=udisks2.service
+After=udisks2.service
+
+[Service]
+WorkingDirectory=/home/pi/
+ExecStart=/home/pi/qt_project/service/start-application.sh
+Restart=always
+StandardInput=null
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target

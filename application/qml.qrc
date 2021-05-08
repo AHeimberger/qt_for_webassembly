@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file alias="ButtonFlipSwitch.qml">resources/ButtonFlipSwitch.qml</file>
+        <file alias="ButtonIcon.qml">resources/ButtonIcon.qml</file>
+        <file alias="Progress.qml">resources/Progress.qml</file>
+        <file alias="main.qml">resources/main.qml</file>
+        <file alias="Rule.qml">resources/Rule.qml</file>
+        <file alias="Settings.qml">resources/Settings.qml</file>
+        <file alias="Spacer.qml">resources/Spacer.qml</file>
+        <file alias="Dashboard.qml">resources/Dashboard.qml</file>
+        <file alias="LogIn.qml">resources/LogIn.qml</file>
+    </qresource>
+    <qresource prefix="/resources/icons">
+        <file alias="add.svg">resources/icons/add.svg</file>
+        <file alias="back.svg">resources/icons/back.svg</file>
+        <file alias="close.svg">resources/icons/close.svg</file>
+        <file alias="humidity.svg">resources/icons/humidity.svg</file>
+        <file alias="pressure.svg">resources/icons/pressure.svg</file>
+        <file alias="settings.svg">resources/icons/settings.svg</file>
+        <file alias="temperature.svg">resources/icons/temperature.svg</file>
+    </qresource>
+</RCC>
