@@ -4,9 +4,7 @@
 #include <QObject>
 #include <QSettings>
 #include <QString>
-#include <QDebug>
 #include <QUrl>
-#include <QFile>
 
 class ApplicationSettings : public QObject {
     Q_OBJECT
@@ -34,121 +32,28 @@ signals:
     void userNameChanged();
 
 public:
-    ApplicationSettings() :
-        mSettings("HomeHiller", "QtWasm") {
-    }
+    ApplicationSettings();
 
-    void load() {
-        double screenWidth = 2560;
-        double screenHeight = 1080;
-        mFilePath = mSettings.value("storage/filepath", "").toString();
-        mWidth = mSettings.value("window/width", 350).toDouble();
-        mHeight = mSettings.value("window/height", 430).toDouble();
-        mX = mSettings.value("window/x", screenWidth/2-350/2).toDouble();
-        mY = mSettings.value("window/y", screenHeight/2-430/2).toDouble();
-        mThemeName = mSettings.value("user/themename", "Light").toString();
-        mDateTimeFormat = mSettings.value("user/datetimeformat", "dd/mm/yyyy").toString();
-        mIp = mSettings.value("network/ip", "192.168.178.39").toString();
-        printSettings();
-    }
+    void load();
+    bool hasValidFilePath();
+    QUrl getFilePath();
+    void setFilePath(const QUrl &filePath);
+    void setWidth(const double &width);
+    void setHeight(const double &height);
+    void setX(const double &x);
+    void setY(const double &y);
+    void setThemeName(const QString &themeName);
+    const QString &themeName();
+    void setDateTimeFormat(const QString &dateTimeFormat);
+    QString getIp();
+    void setIp(const QString &ip);
+    QString getUserName();
+    void setUserName(const QString &userName);
 
-    bool hasValidFilePath() {
-        return QFile::exists(mFilePath.toLocalFile());
-    }
-
-    QUrl getFilePath() {
-        return mFilePath;
-    }
-
-    void setFilePath(const QUrl &filePath) {
-        if (filePath != mFilePath)
-        {
-            mFilePath = filePath;
-            mSettings.setValue("storage/filepath", mFilePath);
-            emit filePathChanged(hasValidFilePath());
-        }
-    }
-
-    void setWidth(const double &width) {
-        mWidth = width;
-    }
-
-    void setHeight(const double &height) {
-        mHeight = height;
-    }
-
-    void setX(const double &x) {
-        mX = x;
-    }
-
-    void setY(const double &y) {
-        mY = y;
-    }
-
-    void setThemeName(const QString &themeName) {
-        mThemeName = themeName;
-        emit themeChanged();
-    }
-
-    const QString &themeName() {
-        return mThemeName;
-    }
-
-    void setDateTimeFormat(const QString &dateTimeFormat) {
-        if (dateTimeFormat == mDateTimeFormat)
-            return;
-
-        mDateTimeFormat = dateTimeFormat;
-        emit dateTimeFormatChanged();
-    }
-
-    QString getIp() {
-        return mIp;
-    }
-
-    void setIp(const QString &ip) {
-        if (ip == mIp)
-            return;
-
-        mIp = ip;
-        emit ipChanged();
-    }
-
-    QString getUserName() {
-        return mUserName;
-    }
-
-    void setUserName(const QString &userName) {
-        if (userName == mUserName)
-            return;
-
-        mUserName = userName;
-        emit userNameChanged();
-    }
-
-    Q_INVOKABLE void saveApplicationSettings() {
-        mSettings.setValue("window/width", mWidth);
-        mSettings.setValue("window/height", mHeight);
-        mSettings.setValue("window/x", mX);
-        mSettings.setValue("window/y", mY);
-        mSettings.setValue("user/themename", mThemeName);
-        mSettings.setValue("user/datetimeformat", mDateTimeFormat);
-        mSettings.setValue("network/ip", mIp);
-        printSettings();
-    }
+    Q_INVOKABLE void saveApplicationSettings();
 
 protected:
-    void printSettings() {
-        qDebug().noquote().nospace() << "Application Settings: " <<
-                                        "\n - filePath: " << mFilePath <<
-                                        "\n - width: " << mWidth <<
-                                        "\n - height: " << mHeight <<
-                                        "\n - x: " << mX <<
-                                        "\n - y: " << mY <<
-                                        "\n - darkMode: " << mThemeName <<
-                                        "\n - dateTimeFormat:" << mDateTimeFormat <<
-                                        "\n - ip: " << mIp;
-    }
+    void printSettings();
 
 private:
     QSettings mSettings;

@@ -34,7 +34,12 @@ HEADERS += \
 
 SOURCES += \
     sources/application.cpp \
+    sources/applicationsettings.cpp \
+    sources/dataprovider.cpp \
     sources/main.cpp \
+    sources/slidecontrol.cpp \
+    sources/themeprovider.cpp \
+    sources/valueslist.cpp
 
 
 RESOURCES += \

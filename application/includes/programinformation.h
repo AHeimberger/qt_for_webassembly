@@ -3,12 +3,12 @@
 
 namespace ProgramInformation {
 
-const QString organization_name = "HomeHiller";
-const QString maintainer = "Andreas Heimberger";
-const QString authors = ", ";
-const QString version = "dirty: .....";
-const QString git_hash = ".....";
-const QString date_commit = "@date_committed";
-const QString date_build = "02/03/2021, 21:07:45";
+constexpr auto organization_name = "OrgName";
+constexpr auto maintainer = "Max Mustermann";
+constexpr auto authors = ", ";
+constexpr auto version = "dirty: .....";
+constexpr auto git_hash = ".....";
+constexpr auto date_commit = "@date_committed";
+constexpr auto date_build = "02/03/2021, 21:07:45";
 
 }
