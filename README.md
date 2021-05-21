@@ -48,3 +48,5 @@ References:
 - [Qt5](https://doc.qt.io/qt-5/wasm.html)
 - [WiringPi](http://wiringpi.com/download-and-install/)
 - [wPi](https://github.com/Milliways2/wPi)
+- [Wiki Qt](https://wiki.qt.io/Qt_for_WebAssembly)
+- [History NaCL, Asm.js](https://www.qt.io/blog/2015/09/25/qt-for-native-client-and-emscripten)
